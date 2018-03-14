@@ -9,10 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let gradientLayer = CAGradientLayer()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeGradient()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    private func makeGradient() {
+        //self.view.backgroundColor = UIColor.red
+        gradientLayer.frame = self.view.bounds
+        let color0 = UIColor.clear.cgColor
+        let color1 = UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1).cgColor
+        gradientLayer.colors = [color0, color1]
+        gradientLayer.locations = [0, 1]
+        self.view.layer.addSublayer(gradientLayer)
     }
 
     override func didReceiveMemoryWarning() {
